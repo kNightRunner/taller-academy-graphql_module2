@@ -1,86 +1,86 @@
 # Module 2 Practice — Rewrite Two Things
 
-**Status: DRAFT. Personal evidence is required before submitting to Taller Academy.**
+> **Illustrative draft — not yet ready for grading.** The GraphQL examples below are hypothetical. They must be replaced or confirmed with real work that I substantively completed in the last 60–90 days. No client names, proprietary details, or internal systems are disclosed.
 
-Write about two actual completed pieces of work from the last 60–90 days. Make one a valuable contribution that was not widely noticed. Use only details safe to publish.
+## Exercise 1 — Two candidate outcome stories
 
-## Exercise 1 — The rewrite
+### Candidate 1 — GraphQL mutation: prevent conflicting task updates
 
-### Work item 1
+**Illustrative original ticket title:** Add task status mutation
 
-**Original ticket title (sanitized):** _[To complete]_
-
-| Question | One-line answer |
+| Question | Example answer (verify before claiming as personal work) |
 | --- | --- |
-| What was true before? | _[Problem, gap, friction, or risk]_ |
-| What did you do? | _[Your contribution]_ |
-| What is true now? | _[Observed or measured change]_ |
-| What did that let someone else do? | _[User, team, or business benefit]_ |
+| What was true before? | Two overlapping updates could silently overwrite a task's latest state. |
+| What did you do? | Added an expected-version check and validation of allowed status transitions to a GraphQL mutation. |
+| What is true now? | Stale updates are rejected with an explicit conflict instead of silently overwriting a task. |
+| What did that let someone else do? | API consumers can refresh a changed task and decide whether to retry, rather than unknowingly losing another update. |
 
-**Standup (one sentence, including the change):** _[To complete]_
+**Standup (one sentence):** Added version checks to task mutations so concurrent edits result in a clear conflict rather than silently overwriting an update.
 
-**Stakeholder (two sentences, no jargon):** _[To complete]_
+**Stakeholder (two sentences, no jargon):** Changes made by one person could accidentally replace more recent changes made by someone else. The new safeguard detects conflicting edits, helping people avoid losing work.
 
-### Work item 2 — A quietly valuable contribution
+**Evidence to collect:** Passing concurrency and transition tests, a before/after demonstration, and confirmation that this work was completed within the required period.
 
-**Original ticket title (sanitized):** _[To complete]_
+### Candidate 2 — GraphQL query: reduce redundant data fetching
 
-| Question | One-line answer |
+**Illustrative original ticket title:** Optimize task list query
+
+| Question | Example answer (verify before claiming as personal work) |
 | --- | --- |
-| What was true before? | _[Problem, gap, friction, or risk]_ |
-| What did you do? | _[Your contribution]_ |
-| What is true now? | _[Observed or measured change]_ |
-| What did that let someone else do? | _[User, team, or business benefit]_ |
+| What was true before? | A task list query could fetch related user details separately for each task, adding unnecessary data-source calls. |
+| What did you do? | Batched related lookups for the query and requested only the fields clients needed. |
+| What is true now? | Repeated related lookups could be combined into a smaller number of requests; the improvement must be verified with measurements. |
+| What did that let someone else do? | Client developers could load the same task information with fewer backend lookups, potentially improving response times. |
 
-**Standup (one sentence, including the change):** _[To complete]_
+**Standup (one sentence):** Redesigned related-data fetching in a task query to reduce redundant backend lookups while preserving the information clients need.
 
-**Stakeholder (two sentences, no jargon):** _[To complete]_
+**Stakeholder (two sentences, no jargon):** Loading a list of tasks previously required repeated requests for related information. Grouping those requests makes the process more efficient and creates an opportunity to improve loading times.
 
-### Compare
+**Evidence to collect:** Query instrumentation before and after, matching response data, integration tests, and confirmation that the work was actually completed.
 
-| Original ticket title | New outcome-focused standup statement |
+### Compare the illustrative titles and outcome descriptions
+
+| Output-oriented title | Outcome-oriented statement |
 | --- | --- |
-| _[Title 1]_ | _[Statement 1]_ |
-| _[Title 2]_ | _[Statement 2]_ |
+| Add task status mutation | Prevent conflicting edits from silently overwriting task updates. |
+| Optimize task list query | Reduce redundant backend lookups when retrieving task lists. |
 
-**Which list better supports a decision to entrust you with greater scope, and why?** _[To complete]_
+The outcome descriptions explain the underlying reliability and efficiency benefits instead of merely naming the implementation.
 
-## Exercise 2 — Locate yourself
+**Note:** Candidate 1 resembles the educational code in this repository. Candidate 2 is only a design proposal and **has not been implemented or measured in this repository**. Neither example proves previous professional work.
 
-The ownership ladder:
+## Exercise 2 — Personal ownership assessment (complete honestly)
 
-1. Execute assigned tasks.
-2. Own assigned tasks or features through completion.
-3. Help define and break down the work before execution.
-4. Own larger features or workstreams end to end.
-5. Help decide what the team should work on.
+The five rungs are: (1) execute assigned tasks; (2) own assigned tasks through completion; (3) help define and break down work; (4) own larger workstreams end to end; and (5) help set team priorities.
 
-**My typical rung:** _[1–5, based on a normal week]_
+**My typical rung:** _[Choose the level that reflects a typical week, not the best week.]_
 
-**Example of operating one rung higher during the last 90 days (two lines):**
+**Example of working one rung higher within the last 90 days (two lines):**
 
-_[What I did beyond my usual scope.]_
+_[Describe an actual instance where I clarified an ambiguous requirement, proposed an approach, or expanded the scope responsibly.]_
 
-_[What it changed.]_
+_[Explain how that decision helped the team or changed the result.]_
 
-**Specific blocker and next step:** _[To complete honestly]_
+**Specific blocker:** _[Choose a real constraint, such as missing business context, limited autonomy, capacity, or different career priorities.]_
+
+**Next step:** _[One actionable improvement appropriate to that blocker.]_
 
 ## Exercise 3 — Make one result visible
 
-**Outcome statement actually shared:** _[To complete]_
+**Outcome statement shared:** _[Insert one real, verified statement from Exercise 1.]_
 
-**Where it was shared (sanitized ticket reference or written update):** _[To complete after posting]_
+**Where and when I shared it:** _[State the ticket comment or written update after actually sharing it; omit sensitive URLs.]_
 
-**Habit for the next two weeks:** Ask "So what?" before describing completed work in a standup.
+**Two-week habit:** Before describing completed work in a standup, ask “So what?” and communicate the change it produced.
 
-## Self-check
+## Submission readiness
 
-- [ ] Two real, recent completed work items with before/after and impact
-- [ ] One item is a quietly valuable accomplishment
-- [ ] Each has a one-sentence standup version and two plain-language stakeholder sentences
-- [ ] Original ticket titles compared with outcome-focused descriptions
-- [ ] Typical ownership rung, higher-rung example, and concrete blocker
-- [ ] One statement actually shared with the team
-- [ ] No confidential information
+- [ ] Both stories are real work completed in the last 60–90 days.
+- [ ] One is an accomplishment that was not widely noticed.
+- [ ] Before, action, after, and benefit are supported by evidence.
+- [ ] Both stories contain a one-sentence standup version and two plain-language stakeholder sentences.
+- [ ] My ownership rung, higher-rung example, and blocker are truthful.
+- [ ] One actual outcome update was shared with the team.
+- [ ] No employer or client-confidential information is exposed.
 
-The GraphQL example in this repository is an independent educational project, not evidence of historical work.
+**Do not submit this illustrative draft as a completed personal reflection.**
