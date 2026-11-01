@@ -1,85 +1,74 @@
 # Taller Academy — Module 2: From Output to Outcomes
 
-> Practice workspace for **Rewrite Two Things**. No employer/client code, internal endpoints, or credentials.
+Independent GraphQL learning project built with NestJS and TypeScript. This repository uses fictional data only. No employer code, customer information, private endpoints, or credentials are included.
 
-**Status:** Draft. Replace prompts with verified personal work before submission.
+> **Assignment status: draft.** Module 2 asks for two genuine, completed pieces of work from the previous 60–90 days. This technical demonstration does not substitute for those personal examples. See [MODULE2_PRACTICE.md](./MODULE2_PRACTICE.md).
 
-## Exercise 1 — Rewrite two things
+## Problem and intended outcomes
 
-Choose two real pieces of work completed in the past 60–90 days. One should be an accomplishment that was not widely noticed.
+Without version checks, competing updates can silently overwrite each other. Without workflow rules, a task can jump into a state that is not valid for the process.
 
-### Work item 1
-**Original ticket title:** _[Sanitized title]_
+This example implements:
+- **Optimistic concurrency:** `transitionTask` accepts `expectedVersion`. Reusing a stale version returns `VERSION_CONFLICT`.
+- **Workflow validation:** allowed transitions are `TODO → IN_PROGRESS`, `IN_PROGRESS → TODO`, and `IN_PROGRESS → DONE`. Other transitions return `INVALID_TRANSITION`.
+- **Structured errors:** missing tasks and invalid versions have distinct GraphQL error codes.
 
-| Question | Answer |
-| --- | --- |
-| What was true before? | _[Problem or risk]_ |
-| What did you do? | _[Your contribution]_ |
-| What is true now? | _[Observed or measured change]_ |
-| What did that let someone else do? | _[Benefit to users or teams]_ |
+## Stack
 
-**Standup (one sentence):** _[Action plus change]_
+Node.js 20+ (22 recommended), NestJS 11, TypeScript, Apollo GraphQL Code First, Jest. Storage is in-memory for demonstration.
 
-**Stakeholder (two sentences, no jargon):** _[Problem. Result and benefit.]_
+## Get started
 
-### Work item 2 — A less visible accomplishment
-**Original ticket title:** _[Sanitized title]_
+```bash
+npm install
+npm run typecheck
+npm test
+npm run build
+npm run start:dev
+```
 
-| Question | Answer |
-| --- | --- |
-| What was true before? | _[Problem or risk]_ |
-| What did you do? | _[Your contribution]_ |
-| What is true now? | _[Observed or measured change]_ |
-| What did that let someone else do? | _[Benefit to users or teams]_ |
+Send GraphQL requests to `http://localhost:3000/graphql` using an HTTP client. An interactive playground is not enabled.
 
-**Standup (one sentence):** _[Action plus change]_
+### Query the seed task
 
-**Stakeholder (two sentences, no jargon):** _[Problem. Result and benefit.]_
+```graphql
+query {
+  task(id: "task-42") {
+    id
+    title
+    status
+    version
+    updatedAt
+  }
+}
+```
 
-### Comparison
-| Original ticket title | Outcome-focused standup sentence |
-| --- | --- |
-| _[Title 1]_ | _[Sentence 1]_ |
-| _[Title 2]_ | _[Sentence 2]_ |
+### Apply a valid mutation
 
-**Reflection:** _[Which list shows scope and impact better, and why?]_
+```graphql
+mutation {
+  transitionTask(input: {
+    taskId: "task-42"
+    expectedVersion: 1
+    newStatus: IN_PROGRESS
+  }) {
+    id
+    status
+    version
+  }
+}
+```
 
-## Exercise 2 — Locate yourself
+After success, the task has version 2. Repeating the same request with version 1 returns `VERSION_CONFLICT`.
 
-1. I execute tasks that are assigned to me.
-2. I own tasks or features from assignment through completion.
-3. I help define and break down the work before it is executed.
-4. I own larger features or workstreams end to end.
-5. I help decide what the team should be working on.
+To observe an invalid transition, restart the server (resetting the in-memory store) and attempt `TODO → DONE`.
 
-**Typical rung:** _[1–5, based on most weeks]_
+## Scope and limitations
 
-**One example in the last 90 days of working one rung higher (two lines):**
+- The store is local to one process and resets on restart. A distributed system needs an atomic conditional database update and an affected-row check.
+- There is no authentication, authorization, durable persistence, or production monitoring.
+- Service-level tests are provided, but successful execution must be verified in a configured runtime; no fabricated test results or business metrics are claimed.
 
-_[Action beyond my normal scope.]_  
-_[Impact or result.]_
+## Module 2 practice
 
-**Specific blocker and next step:** _[Honest answer]_
-
-## Exercise 3 — Make one outcome visible
-
-**Chosen outcome description:** _[One statement from Exercise 1]_
-
-**Shared in:** _[Ticket closing comment or written team update; omit private links]_
-
-**Status:** Not yet shared.
-
-For the next two weeks, ask “So what?” before describing work in a standup.
-
-## Optional independent GraphQL exercises
-
-An original task-management GraphQL API could demonstrate error handling, input validation, and tests using fictional data. These are future practice ideas, **not completed work items or past outcomes**.
-
-## Submission checklist
-
-- [ ] Two real completed work items with before/after, action, and benefit.
-- [ ] One standup sentence and two plain-language stakeholder sentences per item.
-- [ ] Original ticket titles compared with improved versions.
-- [ ] Typical ownership rung, one higher-rung example, and a blocker.
-- [ ] One outcome statement actually shared with the team.
-- [ ] All information safe for a public repository.
+The educational API provides examples of technical changes and possible outcomes. The separate [practice document](./MODULE2_PRACTICE.md) must be completed with verified personal experience before submission.
