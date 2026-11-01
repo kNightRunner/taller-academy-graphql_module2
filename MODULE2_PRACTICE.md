@@ -71,11 +71,17 @@ For upcoming integration work, I will ask about upstream readiness and deploymen
 
 ## Exercise 3 — Make one result visible
 
-**Outcome statement shared:** _[Insert one real, verified statement from Exercise 1.]_
+**Outcome statement communicated:**
 
-**Where and when I shared it:** _[State the ticket comment or written update after actually sharing it; omit sensitive URLs.]_
+During a GraphQL integration, I identified backend readiness issues and deployment problems involving an external dependency that were affecting my assigned work. I raised these blockers with the team so the integration risks were visible and the next steps could be coordinated.
 
-**Two-week habit:** Before describing completed work in a standup, ask “So what?” and communicate the change it produced.
+**Where it was shared:**
+
+I previously reported the issues to the team. The specific channel (Jira comment, Teams message, or standup) has not yet been confirmed; written visibility should be verified before submission.
+
+**Two-week habit:**
+
+Before describing completed work in a standup, I will ask “So what?” and explain how my contribution changed the situation for the team.
 
 ## Submission readiness
 
