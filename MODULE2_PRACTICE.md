@@ -77,7 +77,7 @@ During a GraphQL integration, I identified backend readiness issues and deployme
 
 **Where it was shared:**
 
-I previously reported the issues to the team. The specific channel (Jira comment, Teams message, or standup) has not yet been confirmed; written visibility should be verified before submission.
+I communicated these integration blockers in Slack and Jira so the relevant team members could see the dependency and coordinate next steps. Internal links and confidential details are intentionally omitted.
 
 **Two-week habit:**
 
