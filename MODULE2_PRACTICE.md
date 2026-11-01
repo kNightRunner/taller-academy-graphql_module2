@@ -1,53 +1,47 @@
 # Module 2 Practice — Rewrite Two Things
 
-> **Illustrative draft — not yet ready for grading.** The GraphQL examples below are hypothetical. They must be replaced or confirmed with real work that I substantively completed in the last 60–90 days. No client names, proprietary details, or internal systems are disclosed.
+> **Submission status: incomplete.** Work item 1 is based on my reported experience. Work item 2 is illustrative, not a verified completed task. The lab requires two real finished pieces of work from the last 60–90 days. No proprietary details are included.
 
-## Exercise 1 — Two candidate outcome stories
+## Exercise 1 — Rewrite two things
 
-### Candidate 1 — GraphQL mutation: prevent conflicting task updates
+### Work item 1 — GraphQL integration dependency investigation (confirmed experience)
 
-**Illustrative original ticket title:** Add task status mutation
+**Original ticket title:** Not disclosed (internal Jira ticket).
 
-| Question | Example answer (verify before claiming as personal work) |
+| Question | Answer |
 | --- | --- |
-| What was true before? | Two overlapping updates could silently overwrite a task's latest state. |
-| What did you do? | Added an expected-version check and validation of allowed status transitions to a GraphQL mutation. |
-| What is true now? | Stale updates are rejected with an explicit conflict instead of silently overwriting a task. |
-| What did that let someone else do? | API consumers can refresh a changed task and decide whether to retry, rather than unknowingly losing another update. |
+| What was true before? | A service required by my GraphQL integration was returning errors, blocking or disrupting integration work. |
+| What did you do? | I identified the failing service calls, documented the failures, and communicated their impact through Slack and Jira. |
+| What is true now? | The issue and the affected requests were documented and visible to the responsible team; I have not claimed the underlying service was fixed. |
+| What did that let someone else do? | The responsible team had specific failure details to investigate and coordinate next steps. |
 
-**Standup (one sentence):** Added version checks to task mutations so concurrent edits result in a clear conflict rather than silently overwriting an update.
+**Standup (one sentence):** Identified and documented failing service calls affecting my GraphQL integration, giving the responsible team actionable information through Slack and Jira.
 
-**Stakeholder (two sentences, no jargon):** Changes made by one person could accidentally replace more recent changes made by someone else. The new safeguard detects conflicting edits, helping people avoid losing work.
+**Stakeholder (two sentences, no jargon):** An external service was failing and disrupting an integration I was working on. I documented which requests were failing and shared their impact with the responsible team so they could investigate the issue.
 
-**Evidence to collect:** Passing concurrency and transition tests, a before/after demonstration, and confirmation that this work was completed within the required period.
-
-### Candidate 2 — GraphQL query: reduce redundant data fetching
+### Work item 2 — Query optimization (illustrative candidate, not a verified work experience)
 
 **Illustrative original ticket title:** Optimize task list query
 
-| Question | Example answer (verify before claiming as personal work) |
+| Question | Example answer requiring verification |
 | --- | --- |
-| What was true before? | A task list query could fetch related user details separately for each task, adding unnecessary data-source calls. |
-| What did you do? | Batched related lookups for the query and requested only the fields clients needed. |
-| What is true now? | Repeated related lookups could be combined into a smaller number of requests; the improvement must be verified with measurements. |
-| What did that let someone else do? | Client developers could load the same task information with fewer backend lookups, potentially improving response times. |
+| What was true before? | A list query could fetch related data separately for each item, resulting in unnecessary requests. |
+| What did you do? | Proposed batching related lookups and requesting only relevant fields. |
+| What is true now? | Not established: implementation and before/after measurements have not been verified. |
+| What did that let someone else do? | Potentially load the same information with fewer data-source calls if implemented and measured. |
 
-**Standup (one sentence):** Redesigned related-data fetching in a task query to reduce redundant backend lookups while preserving the information clients need.
+**Example standup (one sentence; not a verified claim):** Proposed batching repeated related-data lookups to reduce unnecessary requests in a GraphQL query.
 
-**Stakeholder (two sentences, no jargon):** Loading a list of tasks previously required repeated requests for related information. Grouping those requests makes the process more efficient and creates an opportunity to improve loading times.
+**Example stakeholder (two sentences; not a verified claim):** Loading a list of items could trigger repeated requests for related information. Combining those requests could make the process more efficient, but the improvement still needs to be implemented and measured.
 
-**Evidence to collect:** Query instrumentation before and after, matching response data, integration tests, and confirmation that the work was actually completed.
+### Compare original titles with outcome-focused versions
 
-### Compare the illustrative titles and outcome descriptions
-
-| Output-oriented title | Outcome-oriented statement |
+| Ticket title | Outcome-focused description |
 | --- | --- |
-| Add task status mutation | Prevent conflicting edits from silently overwriting task updates. |
-| Optimize task list query | Reduce redundant backend lookups when retrieving task lists. |
+| Internal GraphQL integration ticket (title not shared) | Made an external service failure actionable by documenting affected calls and communicating the blocker to the responsible team. |
+| Optimize task list query (illustrative) | Potentially reduce redundant requests for related data; outcome not yet validated. |
 
-The outcome descriptions explain the underlying reliability and efficiency benefits instead of merely naming the implementation.
-
-**Note:** Candidate 1 resembles the educational code in this repository. Candidate 2 is only a design proposal and **has not been implemented or measured in this repository**. Neither example proves previous professional work.
+**Reflection:** The outcome-focused descriptions clarify who benefits and what changed. The first example is grounded in reported work; the second remains a proposal and cannot be submitted as a finished work item without further evidence.
 
 ## Exercise 2 — Locate myself
 
@@ -89,8 +83,8 @@ Before describing completed work in a standup, I will ask “So what?” and exp
 - [ ] One is an accomplishment that was not widely noticed.
 - [ ] Before, action, after, and benefit are supported by evidence.
 - [ ] Both stories contain a one-sentence standup version and two plain-language stakeholder sentences.
-- [ ] My ownership rung, higher-rung example, and blocker are truthful.
-- [ ] One actual outcome update was shared with the team.
+- [x] My ownership rung, higher-rung example, and blocker reflect my reported experience.
+- [x] One actual technical blocker was reported through Slack and Jira.
 - [ ] No employer or client-confidential information is exposed.
 
-**Do not submit this illustrative draft as a completed personal reflection.**
+**Before submitting:** Confirm that the reported work falls within the last 60–90 days and replace the illustrative second item with another verified, completed contribution. Do not claim unmeasured query optimizations as achieved outcomes.
