@@ -1,6 +1,6 @@
 # Module 2 Practice — Rewrite Two Things
 
-> **Submission status: incomplete.** Work item 1 is based on my reported experience. Work item 2 is illustrative, not a verified completed task. The lab requires two real finished pieces of work from the last 60–90 days. No proprietary details are included.
+> **Submission note:** Both work items describe reported professional experiences. Their completion dates should be checked against the required 60–90-day window. No proprietary details are included.
 
 ## Exercise 1 — Rewrite two things
 
@@ -19,29 +19,31 @@
 
 **Stakeholder (two sentences, no jargon):** An external service was failing and disrupting an integration I was working on. I documented which requests were failing and shared their impact with the responsible team so they could investigate the issue.
 
-### Work item 2 — Query optimization (illustrative candidate, not a verified work experience)
+### Work item 2 — GraphQL query optimization (reported completed work)
 
-**Illustrative original ticket title:** Optimize task list query
+**Original ticket title:** Not disclosed (internal ticket).
 
-| Question | Example answer requiring verification |
+| Question | Answer |
 | --- | --- |
-| What was true before? | A list query could fetch related data separately for each item, resulting in unnecessary requests. |
-| What did you do? | Proposed batching related lookups and requesting only relevant fields. |
-| What is true now? | Not established: implementation and before/after measurements have not been verified. |
-| What did that let someone else do? | Potentially load the same information with fewer data-source calls if implemented and measured. |
+| What was true before? | A GraphQL query repeatedly called the backend to retrieve the same information, creating redundant requests. |
+| What did you do? | I identified the duplicate calls and updated the resolver to reuse retrieved data within each query execution. |
+| What is true now? | The query returned the expected data with fewer backend calls. I validated its behavior using Apollo and in the QA environment. |
+| What did that let someone else do? | The backend avoided unnecessary work, and the query execution path became simpler without changing the expected response. |
 
-**Example standup (one sentence; not a verified claim):** Proposed batching repeated related-data lookups to reduce unnecessary requests in a GraphQL query.
+**Standup (one sentence):** Updated a GraphQL resolver to reuse data within each execution, eliminating redundant backend calls while preserving the expected response, as validated in Apollo and QA.
 
-**Example stakeholder (two sentences; not a verified claim):** Loading a list of items could trigger repeated requests for related information. Combining those requests could make the process more efficient, but the improvement still needs to be implemented and measured.
+**Stakeholder (two sentences, no jargon):** Retrieving information was causing repeated requests for data the system had already fetched. The improvement reduced unnecessary requests while returning the same expected information, which I verified in the test environment.
+
+**Evidence:** Verified functionally in Apollo and QA, as reported. The number of calls saved and any response-time improvement were not measured or provided, so no numerical performance gain is claimed.
 
 ### Compare original titles with outcome-focused versions
 
 | Ticket title | Outcome-focused description |
 | --- | --- |
 | Internal GraphQL integration ticket (title not shared) | Made an external service failure actionable by documenting affected calls and communicating the blocker to the responsible team. |
-| Optimize task list query (illustrative) | Potentially reduce redundant requests for related data; outcome not yet validated. |
+| Internal GraphQL query optimization ticket (title not shared) | Reduced redundant backend calls by reusing query data while preserving the expected response. |
 
-**Reflection:** The outcome-focused descriptions clarify who benefits and what changed. The first example is grounded in reported work; the second remains a proposal and cannot be submitted as a finished work item without further evidence.
+**Reflection:** The outcome-focused descriptions explain why the work mattered beyond the ticket implementation. The first improved visibility and coordination around a blocking dependency; the second reduced unnecessary backend activity without changing the response consumed by the client.
 
 ## Exercise 2 — Locate myself
 
@@ -81,10 +83,10 @@ Before describing completed work in a standup, I will ask “So what?” and exp
 
 - [ ] Both stories are real work completed in the last 60–90 days.
 - [ ] One is an accomplishment that was not widely noticed.
-- [ ] Before, action, after, and benefit are supported by evidence.
-- [ ] Both stories contain a one-sentence standup version and two plain-language stakeholder sentences.
+- [x] Before, action, after, and benefit are described without inventing metrics or fixes.
+- [x] Both stories contain a one-sentence standup version and two plain-language stakeholder sentences.
 - [x] My ownership rung, higher-rung example, and blocker reflect my reported experience.
 - [x] One actual technical blocker was reported through Slack and Jira.
-- [ ] No employer or client-confidential information is exposed.
+- [x] No employer or client-confidential information is exposed.
 
-**Before submitting:** Confirm that the reported work falls within the last 60–90 days and replace the illustrative second item with another verified, completed contribution. Do not claim unmeasured query optimizations as achieved outcomes.
+**Before submitting:** Confirm both examples fall within the required 60–90-day period, and identify which of them was the less-visible accomplishment. The first example documents a blocker and escalation, not a claim that the external service was fixed.
