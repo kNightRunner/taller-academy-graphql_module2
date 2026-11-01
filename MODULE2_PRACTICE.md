@@ -49,21 +49,25 @@ The outcome descriptions explain the underlying reliability and efficiency benef
 
 **Note:** Candidate 1 resembles the educational code in this repository. Candidate 2 is only a design proposal and **has not been implemented or measured in this repository**. Neither example proves previous professional work.
 
-## Exercise 2 — Personal ownership assessment (complete honestly)
+## Exercise 2 — Locate myself
 
-The five rungs are: (1) execute assigned tasks; (2) own assigned tasks through completion; (3) help define and break down work; (4) own larger workstreams end to end; and (5) help set team priorities.
+**My typical ownership level: Level 2 — I own assigned tasks or features from assignment through completion.**
 
-**My typical rung:** _[Choose the level that reflects a typical week, not the best week.]_
+As a backend engineer, I usually take responsibility for implementing assigned changes, investigating issues, and checking that the intended behavior is achieved. I recognize that understanding dependencies and raising risks early are also important parts of delivering reliable work.
 
-**Example of working one rung higher within the last 90 days (two lines):**
+**Example of operating one rung higher (Level 3) within the last 90 days — two lines:**
 
-_[Describe an actual instance where I clarified an ambiguous requirement, proposed an approach, or expanded the scope responsibly.]_
+While working on a GraphQL integration, I identified that the backend was not fully prepared to support the expected integration behavior and raised the issue rather than treating it as an isolated coding task.
 
-_[Explain how that decision helped the team or changed the result.]_
+I also noticed that errors associated with a third-party deployment were affecting my work, and I communicated that external dependency and its impact to the team so it could be addressed.
 
-**Specific blocker:** _[Choose a real constraint, such as missing business context, limited autonomy, capacity, or different career priorities.]_
+**What prevents me from operating at Level 3 more consistently?**
 
-**Next step:** _[One actionable improvement appropriate to that blocker.]_
+I am usually involved once tasks and their technical direction have already been defined. That can limit my opportunity to identify integration dependencies, discuss risks, and help shape acceptance criteria before implementation starts. I would also benefit from earlier visibility into business requirements and upstream deployment plans.
+
+**My next step:**
+
+For upcoming integration work, I will ask about upstream readiness and deployment dependencies before starting, document potential blockers early, and propose clearer acceptance criteria when requirements or responsibilities are ambiguous.
 
 ## Exercise 3 — Make one result visible
 
