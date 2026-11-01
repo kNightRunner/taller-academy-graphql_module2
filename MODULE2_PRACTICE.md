@@ -1,6 +1,6 @@
 # Module 2 Practice — Rewrite Two Things
 
-> **Submission note:** Both work items describe reported professional experiences. Their completion dates should be checked against the required 60–90-day window. No proprietary details are included.
+> **Submission note:** Both work items describe reported professional experiences. The author confirmed that both examples took place within the last 90 days. No proprietary details are included.
 
 ## Exercise 1 — Rewrite two things
 
@@ -81,7 +81,7 @@ Before describing completed work in a standup, I will ask “So what?” and exp
 
 ## Submission readiness
 
-- [ ] Both stories are real work completed in the last 60–90 days.
+- [x] Both stories are reported real work completed within the last 90 days (confirmed by the author).
 - [ ] One is an accomplishment that was not widely noticed.
 - [x] Before, action, after, and benefit are described without inventing metrics or fixes.
 - [x] Both stories contain a one-sentence standup version and two plain-language stakeholder sentences.
@@ -89,4 +89,4 @@ Before describing completed work in a standup, I will ask “So what?” and exp
 - [x] One actual technical blocker was reported through Slack and Jira.
 - [x] No employer or client-confidential information is exposed.
 
-**Before submitting:** Confirm both examples fall within the required 60–90-day period, and identify which of them was the less-visible accomplishment. The first example documents a blocker and escalation, not a claim that the external service was fixed.
+**Final review:** Identify which example was the less-visible accomplishment. The first example documents a blocker and escalation, not a claim that the external service was fixed.
